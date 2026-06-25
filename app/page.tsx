@@ -44,6 +44,15 @@ function copyText(text: string): Promise<void> {
   return Promise.resolve();
 }
 
+// 안드로이드: 설치된 앱의 메인 화면 실행, 미설치 시 플레이스토어로
+function androidLaunch(pkg: string) {
+  const fallback = "https://play.google.com/store/apps/details?id=" + pkg;
+  window.location.href =
+    "intent://#Intent;action=android.intent.action.MAIN;" +
+    "category=android.intent.category.LAUNCHER;package=" + pkg +
+    ";S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end";
+}
+
 function ClipboardIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
@@ -87,10 +96,7 @@ export default function Home() {
     const isAndroid = /Android/i.test(ua);
     const isIOS = /iPhone|iPad|iPod/i.test(ua);
     if (isAndroid) {
-      const fallback = "https://play.google.com/store/apps/details?id=" + b.pkg;
-      window.location.href =
-        "intent://#Intent;package=" + b.pkg +
-        ";S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end";
+      androidLaunch(b.pkg);
     } else if (isIOS && b.ios) {
       window.location.href = b.ios;
     }
@@ -102,11 +108,7 @@ export default function Home() {
     setNoteBank(b.n);
     const ua = navigator.userAgent || "";
     if (/Android/i.test(ua)) {
-      // 안드로이드는 앱 실행도 함께 시도 (붙여넣기 안내는 그대로 노출)
-      const fallback = "https://play.google.com/store/apps/details?id=" + b.pkg;
-      window.location.href =
-        "intent://#Intent;package=" + b.pkg +
-        ";S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end";
+      androidLaunch(b.pkg);
     }
   }
 
@@ -161,9 +163,10 @@ export default function Home() {
 
       {noteBank && (
         <Note>
+          <CloseBtn onClick={() => setNoteBank(null)} aria-label="닫기">×</CloseBtn>
           <NoteTitle>{noteBank} 계좌번호 복사됨</NoteTitle>
           <NoteBody>
-            <b>{noteBank} 앱</b>을 열고 &quot;이체/송금&quot; 화면에 붙여넣으세요.
+            <b>{noteBank} 앱</b>을 열고 &quot;이체/송금&quot;에 붙여넣으세요.
           </NoteBody>
           <ReCopy
             onClick={(e) => {
@@ -183,10 +186,9 @@ export default function Home() {
 
 /* ---------- styled-components ---------- */
 
-const pop = keyframes`
-  0% { opacity: 0; transform: translateY(-6px); box-shadow: 0 0 0 0 rgba(216,169,63,0.5); }
-  60% { box-shadow: 0 0 0 9px rgba(216,169,63,0); }
-  100% { opacity: 1; transform: translateY(0); box-shadow: 0 0 0 0 rgba(216,169,63,0); }
+const slideUp = keyframes`
+  from { opacity: 0; transform: translate(-50%, 16px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
 `;
 
 const Wrap = styled.main`
@@ -342,13 +344,33 @@ const BName = styled.span`
   color: #2c4636;
 `;
 const Note = styled.div`
-  margin-top: 14px;
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  width: calc(100% - 28px);
+  max-width: 392px;
   background: #fff7e6;
   border: 2px solid #d8a93f;
-  border-radius: 15px;
-  padding: 13px 16px;
+  border-radius: 16px;
+  padding: 14px 16px 15px;
   text-align: center;
-  animation: ${pop} 0.35s ease-out 1;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+  animation: ${slideUp} 0.28s ease-out 1;
+`;
+const CloseBtn = styled.button`
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: #a9781f;
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-family: inherit;
 `;
 const NoteTitle = styled.div`
   font-size: 14px;
