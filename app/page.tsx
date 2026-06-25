@@ -8,22 +8,22 @@ const ACCOUNT_DISP = "7942-33-53449";
 const BANK_NAME = "카카오뱅크";
 const CDN = "https://play-lh.googleusercontent.com/";
 
-type Bank = { key: string; n: string; pkg: string; ios: string | null; icon: string };
+type Bank = { key: string; n: string; ios: string | null; androidUrl?: string; icon: string };
 
-// 앱이 바로 열리는 은행 (iOS 스킴 + Android intent)
+// 앱 스킴으로 바로 열리는 은행 (토스·카카오뱅크·국민·우리)
 const OPEN_BANKS: Bank[] = [
-  { key: "toss", n: "토스", pkg: "viva.republica.toss", ios: "supertoss://", icon: CDN + "Wb1DQtVwfTWbHCq4ldVUDzGSeJmtAy2flAUavBHPkgbXtCh84E6Y-AIYBw9ZgPRsPkw=s96" },
-  { key: "kakao", n: "카카오뱅크", pkg: "com.kakaobank.channel", ios: "kakaobank://", icon: CDN + "6Z_MeUWUyXUmnE57yjYNKQdGvYHk_P8akfoZn0JZNZvsHAqtYFm4bi90m568nYgnqA=s96" },
-  { key: "kb", n: "국민", pkg: "com.kbstar.kbbank", ios: "kbbank://", icon: CDN + "K1rBzVJjq9qtSxC2vkWIsp3GPtPOCwLPf1aCJ0tL0TvWdNcAKQKhYwjPMY90XJwyW-E=s96" },
-  { key: "woori", n: "우리", pkg: "com.wooribank.smart.npib", ios: "NewSmartPib://", icon: CDN + "X0F73sNd54RPhUJCMlRAINxhGKxw18jkBgw4E5F6dIs_7pL5Geg0xWt5taQwisw47ok=s96" },
+  { key: "toss", n: "토스", ios: "supertoss://", icon: CDN + "Wb1DQtVwfTWbHCq4ldVUDzGSeJmtAy2flAUavBHPkgbXtCh84E6Y-AIYBw9ZgPRsPkw=s96" },
+  { key: "kakao", n: "카카오뱅크", ios: "kakaobank://", androidUrl: "https://www.kakaobank.com/app/common/scheme?to=home", icon: CDN + "6Z_MeUWUyXUmnE57yjYNKQdGvYHk_P8akfoZn0JZNZvsHAqtYFm4bi90m568nYgnqA=s96" },
+  { key: "kb", n: "국민", ios: "kbbank://", icon: CDN + "K1rBzVJjq9qtSxC2vkWIsp3GPtPOCwLPf1aCJ0tL0TvWdNcAKQKhYwjPMY90XJwyW-E=s96" },
+  { key: "woori", n: "우리", ios: "NewSmartPib://", icon: CDN + "X0F73sNd54RPhUJCMlRAINxhGKxw18jkBgw4E5F6dIs_7pL5Geg0xWt5taQwisw47ok=s96" },
 ];
 
-// 아이폰에서 공개 스킴이 없는 은행 → 계좌번호 복사 후 앱에 붙여넣기
+// 공개 스킴이 없는 은행 → 계좌번호 복사 후 앱에 붙여넣기
 const COPY_BANKS: Bank[] = [
-  { key: "shinhan", n: "신한", pkg: "com.shinhan.sbanking", ios: null, icon: CDN + "VoHoGvh399BRPls8rz-UpqshdPrZd04kEUTaTwy8bwP2iWBGUPElL0gf9EWDDOSVj7E_gUk3AlQDoFUpqXBwspY=s96" },
-  { key: "hana", n: "하나", pkg: "com.hanabank.oqf", ios: null, icon: CDN + "l_ODfXz-4ixineb8vbQOXADRl80JoaogbXrEyf3ZPzsACiQs5_6al17W_uyHDUt6XkhGniYRcfFr_q0GLVrtoA=s96" },
-  { key: "nh", n: "농협", pkg: "nh.smart.banking", ios: null, icon: CDN + "sU8NA10pFssrPOUO6Yl6dtN7QwAVpv7OQhvU4kxG-DaTo4a53fVO1nXAJZ2TQNjpNipe_JM0qnPXO8aZAtDHmg=s96" },
-  { key: "ibk", n: "기업", pkg: "com.ibk.android.ionebank", ios: null, icon: CDN + "gAgdaXwHs1kGaI2XiaREdyk4Ys5tEFrk0fYybkX_CanldHTzrERIDW3HzzLqKHUopbq_qTSkKdX6GgCKRAWj9g=s96" },
+  { key: "shinhan", n: "신한", ios: null, icon: CDN + "VoHoGvh399BRPls8rz-UpqshdPrZd04kEUTaTwy8bwP2iWBGUPElL0gf9EWDDOSVj7E_gUk3AlQDoFUpqXBwspY=s96" },
+  { key: "hana", n: "하나", ios: null, icon: CDN + "l_ODfXz-4ixineb8vbQOXADRl80JoaogbXrEyf3ZPzsACiQs5_6al17W_uyHDUt6XkhGniYRcfFr_q0GLVrtoA=s96" },
+  { key: "nh", n: "농협", ios: null, icon: CDN + "sU8NA10pFssrPOUO6Yl6dtN7QwAVpv7OQhvU4kxG-DaTo4a53fVO1nXAJZ2TQNjpNipe_JM0qnPXO8aZAtDHmg=s96" },
+  { key: "ibk", n: "기업", ios: null, icon: CDN + "gAgdaXwHs1kGaI2XiaREdyk4Ys5tEFrk0fYybkX_CanldHTzrERIDW3HzzLqKHUopbq_qTSkKdX6GgCKRAWj9g=s96" },
 ];
 
 function fallbackCopy(text: string) {
@@ -42,15 +42,6 @@ function copyText(text: string): Promise<void> {
   }
   fallbackCopy(text);
   return Promise.resolve();
-}
-
-// 안드로이드: 설치된 앱의 메인 화면 실행, 미설치 시 플레이스토어로
-function androidLaunch(pkg: string) {
-  const fallback = "https://play.google.com/store/apps/details?id=" + pkg;
-  window.location.href =
-    "intent://#Intent;action=android.intent.action.MAIN;" +
-    "category=android.intent.category.LAUNCHER;package=" + pkg +
-    ";S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end";
 }
 
 function ClipboardIcon() {
@@ -83,32 +74,24 @@ export default function Home() {
     copyText(ACCOUNT).then(flashCopied);
   }
 
-  // 바로 열리는 은행
-  function openBank(b: Bank) {
+  // 모든 은행 공통: 계좌번호 복사 → (스킴 있으면) 앱 열기 시도 → 안내 노출
+  // 스토어로 튕기지 않도록 intent fallback은 사용하지 않습니다.
+  function tapBank(b: Bank) {
     copyText(ACCOUNT).then(flashCopied);
+
     if (b.key === "toss") {
       window.location.href =
         "supertoss://send?bank=" + encodeURIComponent(BANK_NAME) +
         "&accountNo=" + ACCOUNT + "&origin=qr";
       return;
     }
-    const ua = navigator.userAgent || "";
-    const isAndroid = /Android/i.test(ua);
-    const isIOS = /iPhone|iPad|iPod/i.test(ua);
-    if (isAndroid) {
-      androidLaunch(b.pkg);
-    } else if (isIOS && b.ios) {
-      window.location.href = b.ios;
-    }
-  }
 
-  // 복사 그룹: 계좌번호 복사 후 안내
-  function copyForBank(b: Bank) {
-    copyText(ACCOUNT).then(flashCopied);
     setNoteBank(b.n);
-    const ua = navigator.userAgent || "";
-    if (/Android/i.test(ua)) {
-      androidLaunch(b.pkg);
+    const isAndroid = /Android/i.test(navigator.userAgent || "");
+    // 안드로이드는 앱링크 브리지(있으면)로, 그 외엔 커스텀 스킴으로 열기 시도
+    const target = isAndroid && b.androidUrl ? b.androidUrl : b.ios;
+    if (target) {
+      window.location.href = target;
     }
   }
 
@@ -137,19 +120,17 @@ export default function Home() {
       <SectionT>앱으로 바로 송금</SectionT>
       <Banks>
         {OPEN_BANKS.map((b) => (
-          <BankBtn key={b.key} onClick={() => openBank(b)}>
+          <BankBtn key={b.key} onClick={() => tapBank(b)}>
             <Logo src={b.icon} alt={b.n} width={44} height={44} loading="lazy" />
             <BName>{b.n}</BName>
           </BankBtn>
         ))}
       </Banks>
 
-      <SectionT $muted>
-        그 외 은행은 계좌번호 복사 후 앱에 붙여넣기
-      </SectionT>
+      <SectionT $muted>그 외 은행은 계좌번호 복사 후 앱에 붙여넣기</SectionT>
       <Banks>
         {COPY_BANKS.map((b) => (
-          <BankBtn key={b.key} $copy onClick={() => copyForBank(b)}>
+          <BankBtn key={b.key} $copy onClick={() => tapBank(b)}>
             <LogoWrap>
               <Logo src={b.icon} alt={b.n} width={44} height={44} loading="lazy" />
               <CopyDot aria-hidden>
