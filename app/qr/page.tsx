@@ -64,7 +64,7 @@ const Title = styled.div`
   line-height: 1;
 `;
 const VerseLine = styled.div`
-  margin-top: 9mm;
+  margin-top: 7mm;
   font-size: 17pt;
   font-weight: 600;
   color: #3a4a3c;
@@ -79,7 +79,7 @@ const Ref = styled.div`
   font-weight: 700;
 `;
 const QrCard = styled.div`
-  margin-top: 12mm;
+  margin-top: 9mm;
   background: #fff;
   border: 1px solid #e6d8bd;
   border-radius: 8mm;
@@ -95,8 +95,8 @@ const QrLabel = styled.div`
   color: #2c4636;
 `;
 const KakaoImg = styled.img`
-  margin-top: 7mm;
-  width: 92mm;
+  margin-top: 6mm;
+  width: 78mm;
   height: auto;
   border-radius: 4mm;
 `;
@@ -108,7 +108,7 @@ const QrSub = styled.div`
   text-align: center;
 `;
 const Acct = styled.div`
-  margin-top: 12mm;
+  margin-top: 9mm;
   width: 100%;
   max-width: 178mm;
   background: #2c4636;
