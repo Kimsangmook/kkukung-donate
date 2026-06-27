@@ -61,7 +61,7 @@ const DarkTitle = styled.div`
 `;
 const DarkText = styled.p`
   margin: 0;
-  font-size: 27px;
+  font-size: 32px;
   line-height: 1.4;
   font-weight: 600;
   word-break: keep-all;
@@ -78,7 +78,7 @@ const ValueCard = styled(Card)`
   justify-content: center;
 `;
 const CardLabel = styled.div<{ $tight?: boolean }>`
-  font-size: 18px;
+  font-size: 20px;
   color: ${t.sub};
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -90,11 +90,11 @@ const Chips = styled.div`
   gap: 8px;
 `;
 const Chip = styled.span`
-  padding: 7px 17px;
+  padding: 8px 18px;
   border-radius: 999px;
   background: rgba(225, 43, 37, 0.08);
   color: ${t.accent};
-  font-size: 21px;
+  font-size: 23px;
   font-weight: 700;
 `;
 const SloganCard = styled(Card)`
@@ -118,7 +118,7 @@ const RegionBlock = styled.div`
   flex: 0 0 auto;
 `;
 const Region = styled.div`
-  font-size: 23px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 1.3;
 `;

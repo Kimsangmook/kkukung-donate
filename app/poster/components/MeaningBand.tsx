@@ -20,7 +20,7 @@ export default function MeaningBand() {
 }
 
 const Band = styled.div`
-  margin-top: 22px;
+  margin-top: 16px;
   display: flex;
   gap: 32px;
   align-items: center;
@@ -39,18 +39,18 @@ const Label = styled.div`
 `;
 const Hand = styled.span`
   font-family: 'Nanum Pen Script';
-  font-size: 70px;
+  font-size: 82px;
   line-height: 0.8;
   color: ${t.accent};
 `;
 const Of = styled.span`
-  font-size: 22px;
+  font-size: 25px;
   color: ${t.sub};
   letter-spacing: 0.2em;
 `;
 const Text = styled.p`
   margin: 0;
-  font-size: 26px;
+  font-size: 35px;
   line-height: 1.5;
   color: ${t.body};
   word-break: keep-all;

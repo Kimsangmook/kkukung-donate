@@ -9,11 +9,12 @@ const MARKS = ["①", "②", "③", "④", "⑤"];
 export default function TeamCard({ team }: { team: Team }) {
   return (
     <Card>
-      <Head>
-        <No>{team.no}</No>
-        <Name>{team.name}</Name>
-      </Head>
-      <Pledge>{team.pledge}</Pledge>
+      <TopRow>
+        <Head>
+          <Name>{team.name}</Name>
+        </Head>
+        <Pledge>{team.pledge}</Pledge>
+      </TopRow>
       <Photos>
         {team.imgs.map((src) => (
           <Frame key={src}>
@@ -47,25 +48,26 @@ const Card = styled.div`
   flex-direction: column;
   gap: 11px;
 `;
+const TopRow = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+`;
 const Head = styled.div`
   display: flex;
   align-items: baseline;
   gap: 12px;
-`;
-const No = styled.span`
-  font-size: 30px;
-  font-weight: 900;
-  color: ${t.accent};
-  line-height: 1;
+  flex: 0 0 auto;
 `;
 const Name = styled.h3`
   margin: 0;
-  font-size: 26px;
+  font-size: 31px;
   font-weight: 900;
 `;
 const Pledge = styled.div`
   font-family: 'Nanum Pen Script';
-  font-size: 26px;
+  font-size: 32px;
   color: ${t.accent};
   line-height: 1.05;
 `;
@@ -78,7 +80,7 @@ const Frame = styled.div`
   border-radius: ${t.radius};
   overflow: hidden;
   background: ${t.line};
-  aspect-ratio: 21 / 15;
+  aspect-ratio: 21 / 18;
 `;
 const Img = styled.img`
   width: 100%;
@@ -90,7 +92,7 @@ const List = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.35;
   color: ${t.body};
   display: flex;
@@ -110,7 +112,7 @@ const Members = styled.div`
   margin-top: auto;
   padding-top: 14px;
   border-top: 1px solid #eee7da;
-  font-size: 17px;
+  font-size: 21px;
   color: ${t.sub};
   line-height: 1.4;
 `;

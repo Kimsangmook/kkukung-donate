@@ -14,11 +14,13 @@ interface Props {
   maxHeight?: string;
   /** center figure + caption (used for the small 이상/현실 figures) */
   center?: boolean;
+  /** stretch the figure to fill its parent's height (for a tall hero photo) */
+  fill?: boolean;
 }
 
-export default function PhotoFigure({ src, caption, aspect, width, maxHeight, center }: Props) {
+export default function PhotoFigure({ src, caption, aspect, width, maxHeight, center, fill }: Props) {
   return (
-    <Figure $center={center}>
+    <Figure $center={center} $fill={fill}>
       <Frame $aspect={aspect} $width={width} $maxHeight={maxHeight} $flex={!aspect}>
         <Img src={src} alt="" />
       </Frame>
@@ -27,11 +29,12 @@ export default function PhotoFigure({ src, caption, aspect, width, maxHeight, ce
   );
 }
 
-const Figure = styled.figure<{ $center?: boolean }>`
+const Figure = styled.figure<{ $center?: boolean; $fill?: boolean }>`
   margin: 0;
   display: flex;
   flex-direction: column;
   ${({ $center }) => $center && "text-align: center;"}
+  ${({ $fill }) => $fill && "flex: 1; height: 100%;"}
 `;
 const Frame = styled.div<{
   $aspect?: string;
@@ -55,7 +58,7 @@ const Img = styled.img`
 `;
 const Caption = styled.figcaption<{ $center?: boolean }>`
   margin-top: ${({ $center }) => ($center ? "6px" : "9px")};
-  font-size: 19px;
+  font-size: 25px;
   color: ${t.sub};
   font-weight: 500;
 `;

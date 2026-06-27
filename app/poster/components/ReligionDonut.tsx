@@ -41,11 +41,11 @@ export default function ReligionDonut() {
 }
 
 const Band = styled.div`
-  margin-top: 24px;
+  margin-top: 16px;
   background: #fff;
   border: 1px solid ${t.line};
   border-radius: ${t.radius};
-  padding: 30px 40px;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
   gap: 44px;
@@ -84,7 +84,7 @@ const LegendBlock = styled.div`
   flex: 0 0 auto;
 `;
 const LegendTitle = styled.div`
-  font-size: 20px;
+  font-size: 22px;
   color: ${t.sub};
   font-weight: 700;
   margin-bottom: 13px;
@@ -96,8 +96,8 @@ const Year = styled.span`
 const LegendGrid = styled.div`
   display: grid;
   grid-template-columns: auto auto;
-  gap: 9px 36px;
-  font-size: 20px;
+  gap: 11px 36px;
+  font-size: 23px;
   color: ${t.body};
 `;
 const LegendItem = styled.span`
@@ -124,14 +124,14 @@ const Emphasis = styled.div`
 `;
 const Hand = styled.span`
   font-family: 'Nanum Pen Script';
-  font-size: 48px;
+  font-size: 60px;
   color: ${t.accent};
   line-height: 0.9;
   flex: 0 0 auto;
 `;
 const EmphasisText = styled.p`
   margin: 0;
-  font-size: 26px;
+  font-size: 38px;
   line-height: 1.45;
   color: ${t.body};
   font-weight: 600;
@@ -139,5 +139,5 @@ const EmphasisText = styled.p`
 `;
 const BigPct = styled.b`
   color: ${t.accent};
-  font-size: 32px;
+  font-size: 44px;
 `;

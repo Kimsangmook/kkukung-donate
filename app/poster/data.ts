@@ -115,7 +115,7 @@ export const teams: Team[] = [
     no: "02",
     name: "꾸미기팀",
     pledge: "“아이들을 디자이너로!”",
-    imgs: ["/images/img15.png", "/images/img08.png"],
+    imgs: ["/images/img15.png", "/images/img14.png"],
     activities: ["가방 꾸미기", "종이컵 팽이 꾸미기"],
     members: "2부 박하원 · 2부 박진겸",
   },

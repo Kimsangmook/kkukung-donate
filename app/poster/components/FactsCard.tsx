@@ -42,7 +42,7 @@ const Card = styled.div`
 `;
 const Block = styled.div``;
 const H3 = styled.h3`
-  font-size: 25px;
+  font-size: 29px;
   font-weight: 800;
   margin: 0 0 5px;
 `;
@@ -50,7 +50,7 @@ const No = styled.span`
   color: ${t.accent};
 `;
 const P = styled.p`
-  font-size: 21px;
+  font-size: 25px;
   line-height: 1.45;
   color: ${t.body};
   margin: 0;

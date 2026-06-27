@@ -35,13 +35,13 @@ const Band = styled.div`
   background: rgba(225, 43, 37, 0.06);
   border: 1px solid rgba(225, 43, 37, 0.18);
   border-radius: ${t.radius};
-  padding: 26px 36px;
+  padding: 15px 36px;
   display: flex;
   align-items: center;
   gap: 34px;
 `;
 const Title = styled.div`
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   line-height: 1.25;
   flex: 0 0 auto;
@@ -61,7 +61,7 @@ const Stat = styled.div<{ $divider?: boolean }>`
     `border-left: 1px solid rgba(225,43,37,.2); border-right: 1px solid rgba(225,43,37,.2);`}
 `;
 const StatLabel = styled.div`
-  font-size: 21px;
+  font-size: 23px;
   color: ${t.body};
   margin-bottom: 5px;
 `;
@@ -72,7 +72,7 @@ const StatRow = styled.div`
   gap: 14px;
 `;
 const Big = styled.span`
-  font-size: 44px;
+  font-size: 52px;
   font-weight: 900;
   color: ${t.accent};
 `;

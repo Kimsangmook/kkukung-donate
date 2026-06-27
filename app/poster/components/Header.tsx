@@ -6,7 +6,6 @@ import { t } from "../tokens";
 export default function Header() {
   return (
     <Wrap>
-      <Logo src="/images/img02.png" alt="KKACùng 2026 in Vietnam" />
       <FlagBlock>
         <Flag src="/images/img01.png" alt="베트남 국기" />
         <FlagText>
@@ -14,6 +13,7 @@ export default function Header() {
           <CountrySub>베트남 · Việt Nam</CountrySub>
         </FlagText>
       </FlagBlock>
+      <Logo src="/images/img02.png" alt="KKACùng 2026 in Vietnam" />
       <Verse>
         <VerseLabel>주제 말씀 · ROMANS 12:15</VerseLabel>
         <VerseText>
@@ -27,28 +27,25 @@ export default function Header() {
 }
 
 const Wrap = styled.header`
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 40px;
   align-items: center;
 `;
 const Logo = styled.img`
-  width: 588px;
-  max-width: 44%;
+  width: 780px;
   height: auto;
   display: block;
-  flex: 0 0 auto;
+  justify-self: center;
 `;
 const FlagBlock = styled.div`
-  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 9px;
-  padding: 0 36px;
-  border-left: 1px solid ${t.line};
 `;
 const Flag = styled.img`
-  width: 132px;
+  width: 526px;
   height: auto;
   border: 1px solid ${t.line};
   display: block;
@@ -68,22 +65,23 @@ const CountrySub = styled.div`
   font-weight: 600;
 `;
 const Verse = styled.div`
-  flex: 1;
   border-left: 5px solid ${t.accent};
   padding-left: 32px;
 `;
 const VerseLabel = styled.div`
-  font-size: 21px;
+  font-size: 30px;
   letter-spacing: 0.2em;
   color: ${t.accent};
   font-weight: 800;
   margin-bottom: 11px;
+  text-align: center;
 `;
 const VerseText = styled.p`
-  font-size: 32px;
+  font-size: 39px;
   line-height: 1.4;
   margin: 0;
   font-weight: 700;
   color: ${t.ink};
   word-break: keep-all;
+  text-align: center;
 `;

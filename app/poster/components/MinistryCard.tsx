@@ -24,7 +24,7 @@ const Card = styled.div`
 `;
 const H4 = styled.h4`
   margin: 0 0 7px;
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 800;
 `;
 const No = styled.span`
@@ -32,7 +32,7 @@ const No = styled.span`
 `;
 const P = styled.p`
   margin: 0;
-  font-size: 21px;
+  font-size: 25px;
   line-height: 1.4;
   color: ${t.body};
   word-break: keep-all;
