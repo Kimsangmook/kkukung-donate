@@ -13,7 +13,7 @@ export default function MinistrySection() {
         en="MINISTRY"
         ko="사역 소개"
         tag="장애 영유아 섬김 · 4팀"
-        sub="담당 교역자 정진혁 · 팀장 김지수"
+        sub="담당 교역자 정진혁 목사님 · 팀장 김지수"
       />
       <Teams>
         {teams.map((team) => (
